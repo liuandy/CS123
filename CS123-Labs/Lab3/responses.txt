@@ -1,0 +1,48 @@
+Lab Results
+===========
+
+Naive top k - 2.109s
+topk_heap - 1.104s
+topk_lossy - 2.655s w/ frequency .1
+
+Parallel max
+------------
+
+1 chunk = 0.774s
+2 chunks = 0.474s
+4 chunks = 0.383s
+8 chunks = 0.282s
+16 chunks = 0.292s
+
+Eventually, it's not as fast. Can parallelize across computers to rectify this. Spawning processes
+doesn't increase the processing power of the actual computer. After a while, spawning processes
+does not speed up performance.
+
+Natural upper bound of chunks in this case would be number of observations / 2.
+
+k-means
+-------
+
+If the maximum distance from a point to its closest centroid is less than the threshold, stop.
+
+MNIST
+-----
+
+Most obvious choice: 10
+Decreasing number: Digits get blended together. So 4 and 9 are viewed as the same.
+Increasing number: Variations of digits become distinct. I.e., loopy 2's and non-loopy 2's are
+	now unique digits. Different shapes of zero become distinct.
+	
+kNN
+---
+
+Lower k, more likely to swayed by a single incorrect classification neighbor, takes less time
+Higher k, less likely to be swayed by a single incorrect classification neighbor, takes more time
+	Problematic if the additional neighbors are of the wrong class though.
+	
+Can decide on k using cross-validation on the training data.
+
+This algorithm is parallelizable. You can split the neighbor pool across a bunch of mappers, and then
+return the k nearest neighbors from each mapper. The reducer has less to look at then.
+
+
