@@ -18,11 +18,46 @@ Polynomial::Polynomial(int a, int b, int c) {
 		
 // ...
 
+Polynomial::Polynomial(const Polynomial &p) {
+
+}
+
+// Destructor
+Polynomial::~Polynomial(const Polynomial &p) {
+
+}
+
+// Member functions
+
+bool Polynomial::hasRealSolution() const {
+	return true;
+}
+
+double Polynomial::getRealSolution1() const {
+	return 0.0;
+}
+double Polynomial::getRealSolution2() const {
+	return 0.0;
+}
+
+int Polynomial::evaluate(int x) const {
+	return 0;
+}
+
+// Overloaded operators
+
 Polynomial& Polynomial::operator=(const Polynomial &p) {
 
     // ...
 
     return *this; 
+}
+
+Polynomial Polynomial::operator+(const Polynomial &p) const {
+	return Polynomial();
+}
+bool Polynomial::operator==(const Polynomial &p) const {
+	return true;
 }
 
 // ...
