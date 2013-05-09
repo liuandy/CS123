@@ -23,7 +23,7 @@ Polynomial::Polynomial(const Polynomial &p) {
 }
 
 // Destructor
-Polynomial::~Polynomial(const Polynomial &p) {
+Polynomial::~Polynomial() {
 
 }
 
