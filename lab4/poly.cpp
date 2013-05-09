@@ -21,6 +21,9 @@ Polynomial::Polynomial(int a, int b, int c) {
 // ...
 
 Polynomial::Polynomial(const Polynomial &p) {
+	this->a = p.a;
+	this->b = p.b;
+	this->c = p.c;
 	numPolynomials++;
 }
 
@@ -50,15 +53,21 @@ int Polynomial::evaluate(int x) const {
 
 Polynomial& Polynomial::operator=(const Polynomial &p) {
 
-    // ...
+    // Overloaded assignment
+	this->a = p.a;
+	this->b = p.b;
+	this->c = p.c;
 
     return *this; 
 }
 
 Polynomial Polynomial::operator+(const Polynomial &p) const {
-	return Polynomial();
+	return Polynomial(this->a + p.a, this->b + p.b, this->c + p.c);
 }
 bool Polynomial::operator==(const Polynomial &p) const {
+	if (this->a != p.a) return false;
+	else if (this->b != p.b) return false;
+	else if (this->c != p.c) return false;
 	return true;
 }
 
