@@ -8,23 +8,25 @@ int Polynomial::numPolynomials = 0;
 
 Polynomial::Polynomial() {
 	a = b = c = 0;
+	numPolynomials++;
 }
 
 Polynomial::Polynomial(int a, int b, int c) {
 	this->a = a;
 	this->b = b;
 	this->c = c;
+	numPolynomials++;
 }
 		
 // ...
 
 Polynomial::Polynomial(const Polynomial &p) {
-
+	numPolynomials++;
 }
 
 // Destructor
 Polynomial::~Polynomial() {
-
+	numPolynomials++;
 }
 
 // Member functions
