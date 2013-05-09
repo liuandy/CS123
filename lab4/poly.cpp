@@ -35,18 +35,23 @@ Polynomial::~Polynomial() {
 // Member functions
 
 bool Polynomial::hasRealSolution() const {
-	return true;
+	if ((this->b * this->b - 4 * this->a * this->c) >= 0) return true;
+	return false;
 }
 
 double Polynomial::getRealSolution1() const {
-	return 0.0;
+	if (!hasRealSolution()) return -9999;
+	double denominator = -(this->b) - sqrt(this->b * this->b - 4 * this->a * this->c);
+	return (denominator / (2 * this->a));
 }
 double Polynomial::getRealSolution2() const {
-	return 0.0;
+	if (!hasRealSolution()) return -9999;
+	double denominator = -(this->b) + sqrt(this->b * this->b - 4 * this->a * this->c);
+	return (denominator / (2 * this->a));
 }
 
 int Polynomial::evaluate(int x) const {
-	return 0;
+	return (this->a * (x * x) + this->b * x + this->c);
 }
 
 // Overloaded operators
