@@ -29,7 +29,7 @@ Polynomial::Polynomial(const Polynomial &p) {
 
 // Destructor
 Polynomial::~Polynomial() {
-	numPolynomials++;
+	numPolynomials += -1;
 }
 
 // Member functions
@@ -41,12 +41,12 @@ bool Polynomial::hasRealSolution() const {
 
 double Polynomial::getRealSolution1() const {
 	if (!hasRealSolution()) return -9999;
-	double denominator = -(this->b) - sqrt(this->b * this->b - 4 * this->a * this->c);
+	double denominator = -(this->b) + sqrt(this->b * this->b - 4 * this->a * this->c);
 	return (denominator / (2 * this->a));
 }
 double Polynomial::getRealSolution2() const {
 	if (!hasRealSolution()) return -9999;
-	double denominator = -(this->b) + sqrt(this->b * this->b - 4 * this->a * this->c);
+	double denominator = -(this->b) - sqrt(this->b * this->b - 4 * this->a * this->c);
 	return (denominator / (2 * this->a));
 }
 
