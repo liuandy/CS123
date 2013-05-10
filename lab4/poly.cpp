@@ -87,5 +87,29 @@ int Polynomial::getNumPolynomials() {
 
 // Printing the class
 std::ostream& operator<<(std::ostream &out, const Polynomial &p) {
-    return out << p.a << "*x^2 + " << p.b << "*x + " << p.c;
+	if (p.a == 1) {
+		out << "x^2 ";
+	} else if (p.a != 0) {
+		out << p.a << "x^2 ";
+	}
+	
+	if (p.b == -1) {
+		out << "- x ";
+	} else if (p.b == 1) {
+		out << "+ x ";
+	} else if (p.b < 0) {
+		out << "- " << fabs(p.b) << "x ";
+	} else if (p.b > 0) {
+		out << "+ " << p.b << "x ";
+	}
+	
+	if (p.c < 0) {
+		out << "- " << fabs(p.c);
+	} else if (p.c > 0) {
+		out << "+ " << p.c;
+	}
+	
+	return out;
+		
+    // return out << p.a << "*x^2 + " << p.b << "*x + " << p.c;
 }
